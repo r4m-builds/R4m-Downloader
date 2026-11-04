@@ -166,7 +166,7 @@ class _DownloaderPageState extends State<DownloaderPage> {
 
     process.stdout
         .transform(const SystemEncoding().decoder)
-        .transform(const LineSplitter())
+        .transform(LineSplitter())
         .listen((line) {
       _appendLog(line);
       final match = RegExp(r'(\d+(?:\.\d+)?)%').firstMatch(line);
