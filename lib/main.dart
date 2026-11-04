@@ -181,7 +181,7 @@ class _DownloaderPageState extends State<DownloaderPage> {
     process.stderr
         .transform(const SystemEncoding().decoder)
         .transform(const LineSplitter())
-        .listen(_appendLog);
+        .listen((dynamic event) => _appendLog(event.toString()));
 
     final exitCode = await process.exitCode;
     if (exitCode != 0) {
